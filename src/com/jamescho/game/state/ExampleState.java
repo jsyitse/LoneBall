@@ -9,6 +9,7 @@ import java.awt.event.MouseEvent;
  */
 public class ExampleState extends State {
 
+    private int y = 200;
 
     @Override
     public void init() {
@@ -23,16 +24,26 @@ public class ExampleState extends State {
     @Override
     public void render(Graphics g) {
         g.setColor(Color.red);
-        g.drawRect(400, 200, 10, 15);
+        y = 300;
+        g.drawRect(400, y, 10, 15);
     }
 
     @Override
     public void onClick(MouseEvent e) {
+        y = y + 4;
+
 
     }
 
     @Override
     public void onKeyPress(KeyEvent e) {
+
+        if (e.getKeyCode() == KeyEvent.VK_KP_DOWN) {
+            y = y + 4;
+
+        }else if (e.getKeyCode() == KeyEvent.VK_UP) {
+            y = y - 10;
+        }
 
 
     }
